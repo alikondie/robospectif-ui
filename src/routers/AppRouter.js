@@ -1,9 +1,9 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history';
-import GeneralInfos from '../components/new-data/GeneralInfos/GeneralInfos';
+import GeneralInfos from '../components/GeneralInfosPage/GeneralInfosPage';
 import Header from '../components/Header/Header';
-import PlayerSpecs from '../components/new-data/PlayerSpecs/PlayerSpecs';
+import PlayerSpecs from '../components/PlayerSpecs/PlayerSpecs';
 
 export const history = createHistory();
 

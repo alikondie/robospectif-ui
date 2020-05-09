@@ -5,10 +5,13 @@ const Header = () => {
     <header>
       <h1>Robospectif</h1>
       <Link to='/general-infos'>
-        <p>Informations Générales</p>
+        <p>Partie</p>
       </Link>
       <Link to='/player-spec'>
-        <p>Caractéristiques des joueurs</p>
+        <p>Joueurs</p>
+      </Link>
+      <Link to='/turns'>
+        <p>Tours</p>
       </Link>
     </header>
   );

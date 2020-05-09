@@ -10,9 +10,9 @@ const db = {
         setup: '',
         acceptanceOftheGame: '',
         attitudes: '',
-        LudicAspects: '',
-        Exchanges: '',
-        VAProblematics: '',
+        ludicAspects: '',
+        exchanges: '',
+        vaProblematics: '',
       },
     },
     players: {
