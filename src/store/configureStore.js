@@ -6,4 +6,6 @@ export default () => {
       generalInfos: generalInfosReducer,
     })
   );
+
+  return store;
 };

@@ -1,4 +1,4 @@
-export const editGeneralInfos = (infos) => ({
+export const EditGeneralInfos = (updates) => ({
   type: 'EDIT_INFO',
-  infos,
+  updates,
 });
