@@ -1,18 +1,22 @@
 import React from 'react';
-
-const PlayersPage = () => {
+import { connect } from 'react-redux';
+import PlayerItem from './PlayerItem';
+const PlayersPage = (props) => {
+  /*console.log(
+    props.players.map((player) => <PlayerItem key={player.id} {...player} />)
+  );*/
   return (
     <div>
       <h1>Joueurs</h1>
-      <GeneralInfosForm
-        player={props.player}
-        onSubmit={(player) => {
-          props.dispatch(EditGeneralInfos(infos));
-          props.history.push('/');
-        }}
-      />
+      {props.players.map((player) => (
+        <PlayerItem key={player.id} {...player} />
+      ))}
     </div>
   );
 };
 
-export default PlayersPage;
+const mapStateToProps = (state) => ({
+  players: state.players,
+});
+
+export default connect(mapStateToProps)(PlayersPage);

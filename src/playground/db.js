@@ -17,6 +17,7 @@ const db = {
     },
     players: {
       player1: {
+        id: 15,
         name: '',
         description: '',
         rejectedCards: {
@@ -26,6 +27,7 @@ const db = {
         },
       },
       player2: {
+        id: 15,
         name: '',
         description: '',
         rejectedCards: {
@@ -35,6 +37,7 @@ const db = {
         },
       },
       player3: {
+        id: 15,
         name: '',
         description: '',
         rejectedCards: {
@@ -44,6 +47,7 @@ const db = {
         },
       },
       player2: {
+        id: 15,
         description: '',
         rejectedCards: {
           dimension: '',

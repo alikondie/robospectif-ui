@@ -7,7 +7,7 @@ const Header = () => {
       <Link to='/general-infos'>
         <p>Partie</p>
       </Link>
-      <Link to='/player-spec'>
+      <Link to='/players'>
         <p>Joueurs</p>
       </Link>
       <Link to='/turns'>

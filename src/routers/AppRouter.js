@@ -4,7 +4,7 @@ import { createBrowserHistory as createHistory } from 'history';
 import GeneralInfos from '../components/GeneralInfosPage';
 import Header from '../components/Header';
 import Players from '../components/PlayersPage';
-
+import EditPlayerPage from '../components/EditPlayerPage';
 export const history = createHistory();
 
 const AppRouter = () => (
@@ -14,6 +14,7 @@ const AppRouter = () => (
       <Switch>
         <Route path='/general-infos' component={GeneralInfos} />
         <Route path='/players' component={Players} />
+        <Route path='/edit-player/:id' component={EditPlayerPage} />
       </Switch>
     </div>
   </Router>

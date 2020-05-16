@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import GeneralInfosForm from '../GeneralInfosForm/GeneralInfosForm';
-import { EditGeneralInfos } from '../actions/general-infos';
+import GeneralInfosForm from './GeneralInfosForm';
+import { editGeneralInfos } from '../actions/general-infos';
 
 const GeneralInfosPage = (props) => {
   return (
@@ -10,7 +10,7 @@ const GeneralInfosPage = (props) => {
       <GeneralInfosForm
         infos={props.generalInfos}
         onSubmit={(infos) => {
-          props.dispatch(EditGeneralInfos(infos));
+          props.dispatch(editGeneralInfos(infos));
           props.history.push('/');
         }}
       />

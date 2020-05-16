@@ -20,6 +20,9 @@ export default (state = generalInfosDefaultState, action) => {
       console.log('state after edit');
       console.log(action);
       return { ...state, ...action.updates };
+    case 'SET_INFO':
+      return action.infos;
+    default:
+      return state;
   }
-  return state;
 };
