@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect, useSelector, useDispatch } from 'react-redux';
-import EditPlayerForm from '../components/EditPlayerForm';
-import { editPlayer } from '../actions/players';
+import EditPlayerForm from '.';
+import { editPlayer } from '../../store/actions/players';
 
 const EditPlayerPage = (props) => {
   //console.log('this is props', props);

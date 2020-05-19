@@ -1,14 +1,13 @@
 import React from 'react';
-import { Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { createBrowserHistory as createHistory } from 'history';
-import GeneralInfos from '../components/GeneralInfosPage';
+import GeneralInfos from '../screens/GeneralInfos';
 import Header from '../components/Header';
-import Players from '../components/PlayersPage';
-import EditPlayerPage from '../components/EditPlayerPage';
-export const history = createHistory();
+import Players from '../screens/Players';
+import EditPlayerPage from '../screens/EditPlayers/EditPlayerPage';
 
 const AppRouter = () => (
-  <Router history={history}>
+  <Router>
     <div>
       <Header></Header>
       <Switch>

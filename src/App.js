@@ -3,7 +3,7 @@ import './App.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
-import { addPlayer } from '../src/actions/players';
+import { addPlayer } from '../src/store/actions/players';
 
 const store = configureStore();
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GeneralInfosForm from './GeneralInfosForm';
-import { editGeneralInfos } from '../actions/general-infos';
+import { editGeneralInfos } from '../../store/actions/generalInfos';
 
 const GeneralInfosPage = (props) => {
   return (
