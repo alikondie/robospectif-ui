@@ -17,8 +17,6 @@ const generalInfosDefaultState = {
 export default (state = generalInfosDefaultState, action) => {
   switch (action.type) {
     case 'EDIT_INFO':
-      console.log('state after edit');
-      console.log(action);
       return { ...state, ...action.updates };
     case 'SET_INFO':
       return action.infos;

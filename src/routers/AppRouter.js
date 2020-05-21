@@ -4,7 +4,7 @@ import { createBrowserHistory as createHistory } from 'history';
 import GeneralInfos from '../screens/GeneralInfos';
 import Header from '../components/Header';
 import Players from '../screens/Players';
-import EditPlayerPage from '../screens/EditPlayers/EditPlayerPage';
+import EditPlayerPage from '../screens/EditPlayers/';
 
 const AppRouter = () => (
   <Router>

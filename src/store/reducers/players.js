@@ -3,8 +3,6 @@ const playersDefaultState = [];
 export default (state = playersDefaultState, action) => {
   switch (action.type) {
     case 'EDIT_PLAYER':
-      console.log('state after edit');
-      console.log(action);
       return state.map((player) => {
         if (player.id === action.id) {
           return { ...player, ...action.updates };

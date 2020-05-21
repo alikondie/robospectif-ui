@@ -4,7 +4,6 @@ import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
 import { addPlayer } from '../src/store/actions/players';
-
 const store = configureStore();
 
 store.dispatch(
@@ -32,10 +31,9 @@ store.dispatch(
   })
 );
 
-/*store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
-store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000 }));
-store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
-*/
+// store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }));
+// store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000 }));
+// store.dispatch(addExpense({ description: 'Rent', amount: 109500 }));
 
 //store.dispatch()
 function App() {
