@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import Input from '../../components/Input';
-import TextArea from '../../components/TextArea';
+import { Input, TextArea, StyledForm, Button } from '../../common';
 import * as Yup from 'yup';
 
 // bug in yup fix it!!
@@ -41,7 +40,7 @@ const GeneralInfosForm = ({ infos, onSubmit }) => {
           onSubmit({ ...values });
         }}
       >
-        <Form>
+        <StyledForm>
           <Input
             label='Animateur'
             name='animator'
@@ -97,8 +96,8 @@ const GeneralInfosForm = ({ infos, onSubmit }) => {
             type='text'
             placeholder='Problématiques du VA soulevées dans les débats'
           />
-          <button type='submit'>Submit</button>
-        </Form>
+          <Button type='submit'>Submit</Button>
+        </StyledForm>
       </Formik>
     </div>
   );

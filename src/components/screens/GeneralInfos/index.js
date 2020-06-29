@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import GeneralInfosForm from './GeneralInfosForm';
-import { editGeneralInfos } from '../../store/actions/generalInfos';
-
+import { editGeneralInfos } from '../../../store/actions/generalInfos';
+import { PageLayout } from '../../common';
 const GeneralInfosPage = (props) => {
   return (
-    <div>
+    <PageLayout>
       <h1>Informations générales sur la partie</h1>
       <GeneralInfosForm
         infos={props.generalInfos}
@@ -14,7 +14,7 @@ const GeneralInfosPage = (props) => {
           props.history.push('/');
         }}
       />
-    </div>
+    </PageLayout>
   );
 };
 

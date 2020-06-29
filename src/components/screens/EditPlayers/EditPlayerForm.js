@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Formik, Form } from 'formik';
-import Input from '../../components/Input';
-import TextArea from '../../components/TextArea';
+import { Input, TextArea, StyledForm, Button } from '../../common';
 const playersValidation = null;
 const EditPlayerForm = ({ player, onSubmit }) => {
   const rejectedCards = {};
@@ -16,7 +15,7 @@ const EditPlayerForm = ({ player, onSubmit }) => {
           onSubmit({ ...values });
         }}
       >
-        <Form>
+        <StyledForm>
           <Input
             label='Nom/Prénom'
             name='name'
@@ -42,7 +41,7 @@ const EditPlayerForm = ({ player, onSubmit }) => {
           {player.rejectedCards.dimension.map((card) => (
             <p key={card[0]}>{card}</p>
           ))}
-        </Form>
+        </StyledForm>
       </Formik>
     </div>
   );

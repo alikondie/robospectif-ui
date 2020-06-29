@@ -1,12 +1,14 @@
 import React from 'react';
 import { useField } from 'formik';
 
-export default ({ label, ...props }) => {
+export const Checkbox = ({ children, ...props }) => {
   const [field, meta] = useField({ ...props, type: 'checkbox' });
   return (
     <>
-      <label htmlFor={props.id || props.name}>{label}</label>
-      <select className='select' {...field} {...props} />
+      <label className='checkbox'>
+        <input type='checkbox' {...field} {...props} />
+        {children}
+      </label>
       {meta.touched && meta.error ? (
         <div className='error'>{meta.error}</div>
       ) : null}
