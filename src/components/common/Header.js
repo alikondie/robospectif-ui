@@ -3,10 +3,11 @@ import { Link as ReactRouterDomLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 const HeaderWrapper = styled.header`
-  height: 60px;
-  width: 100%;
+  height: 100vh;
+  width: 15%;
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   padding: 0 16px;
   position: fixed;
   top: 0;
@@ -15,27 +16,18 @@ const HeaderWrapper = styled.header`
 `;
 
 const Menu = styled.nav`
-  display: ${(p) => (p.open ? 'block' : 'none')};
+  display: flex;
+  flex-direction: column;
   font-family: 'Open Sans';
   position: absolute;
   width: 100%;
-  top: 60px;
-  left: 0;
-  padding: 8px;
+  padding: 5px;
   box-sizing: border-box;
-  border-bottom: 3px solid #fdd54f;
-  background: white;
-
-  @media (min-width: 768px) {
-    display: flex;
-    left: initial;
-    top: initial;
-    background: none;
-    position: relative;
-    width: initial;
-    border-bottom: none;
-    margin: auto 0 auto auto;
-  }
+  border-bottom: none;
+  background: none;
+  position: relative;
+  border-bottom: 1px solid #58647a;
+  padding-bottom: 20px;
 `;
 
 const Link = ({ isActive, children, ...props }) => {
@@ -54,9 +46,20 @@ const StyledLink = styled(Link)`
 `;
 
 const Title = styled.h1`
-  padding: auto;
-  margin: auto 0 auto 0;
+  width: 100%;
   color: white;
+  padding: 4px;
+  border-bottom: 1px solid #58647a;
+  padding-bottom: 20px;
+`;
+
+const CopyRight = styled.p`
+  width: 20%;
+  color: white;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  margin-bottom: 20px;
 `;
 
 export const Header = () => {
@@ -74,6 +77,7 @@ export const Header = () => {
           <p>Tours</p>
         </StyledLink>
       </Menu>
+      <CopyRight>Created by Takie Yamani</CopyRight>
     </HeaderWrapper>
   );
 };

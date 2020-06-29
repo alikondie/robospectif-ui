@@ -6,16 +6,16 @@ import * as Yup from 'yup';
 // bug in yup fix it!!
 const generalInfosValidation = Yup.object().shape({
   animator: Yup.string()
-    .max(20, 'Must be 20 characters or less')
-    .required('Required'),
-  context: Yup.string().required('Required'),
-  observations: Yup.string().required('Required'),
-  setup: Yup.string().required('Required'),
-  acceptanceOftheGame: Yup.string().required('Required'),
-  attitudes: Yup.string().required('Required'),
-  ludicAspects: Yup.string().required('Required'),
-  exchanges: Yup.string().required('Required'),
-  vaProblematics: Yup.string().required('Required'),
+    .max(20, '20 caractères maximum est permis')
+    .required('Champ requis'),
+  context: Yup.string().required('Champ requis'),
+  observations: Yup.string().required('Champ requis'),
+  setup: Yup.string().required('Champ requis'),
+  acceptanceOftheGame: Yup.string().required('Champ requis'),
+  attitudes: Yup.string().required('Champ requis'),
+  ludicAspects: Yup.string().required('Champ requis'),
+  exchanges: Yup.string().required('Champ requis'),
+  vaProblematics: Yup.string().required('Champ requis'),
 });
 const GeneralInfosForm = ({ infos, onSubmit }) => {
   return (
