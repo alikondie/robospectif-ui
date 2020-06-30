@@ -6,10 +6,12 @@ import Players from '../components/screens/Players';
 import EditPlayerPage from '../components/screens/EditPlayers/';
 import Login from '../components/screens/Login';
 import Register from '../components/screens/Register';
+import Dashborad from '../components/screens/Dashboard';
 const AppRouter = () => (
   <Router>
     <div>
       <Switch>
+        <Route path='/dashboard' component={Dashborad} />
         <Route path='/login' component={Login} />
         <Route path='/Register' component={Register} />
         <Route path='/general-infos' component={GeneralInfos} />
