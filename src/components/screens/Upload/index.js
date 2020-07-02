@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setGeneralInfos } from '../../../store/actions/generalInfos';
 import { addPlayer } from '../../../store/actions/players';
-
+import { activateUpload } from '../../../store/actions/fileUpload';
 export default (props) => {
   const dispatch = useDispatch();
   const [jsonFile, setJsonFile] = useState({
@@ -40,6 +40,7 @@ export default (props) => {
     jsonFile.player.forEach((player) => {
       dispatch(addPlayer(player));
     });
+    dispatch(activateUpload());
     props.history.push('/upload/general-infos');
   };
 
