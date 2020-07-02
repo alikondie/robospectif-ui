@@ -1,16 +1,16 @@
 const generalInfosDefaultState = {
   date: 456,
   players: 6,
-  animator: 'Pol',
-  context: 'hello',
-  observations: 'lorem ipsum',
+  animator: '',
+  context: '',
+  observations: '',
   gameObservations: {
-    setup: 'gfdgfd',
-    acceptanceOftheGame: 'eazeza',
-    attitudes: 'tretrete',
-    ludicAspects: 'uytuyt',
-    exchanges: 'ytrytr',
-    vaProblematics: 'uytuytuty',
+    setup: '',
+    acceptanceOftheGame: '',
+    attitudes: '',
+    ludicAspects: '',
+    exchanges: '',
+    vaProblematics: '',
   },
 };
 

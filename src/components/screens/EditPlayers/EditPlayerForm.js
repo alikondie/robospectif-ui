@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import { Formik, Form } from 'formik';
-import { Input, TextArea, StyledForm, Button } from '../../common';
-const playersValidation = null;
+import React from 'react';
+import { Formik } from 'formik';
+import { Input, TextArea, StyledForm } from '../../common';
 const EditPlayerForm = ({ player, onSubmit }) => {
-  const rejectedCards = {};
+  //const rejectedCards = {};
   return (
     <div>
       <Formik

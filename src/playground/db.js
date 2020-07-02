@@ -17,7 +17,7 @@ const db = {
     },
     players: {
       player1: {
-        id: 15,
+        id: 1,
         name: '',
         description: '',
         rejectedCards: {
@@ -27,7 +27,7 @@ const db = {
         },
       },
       player2: {
-        id: 15,
+        id: 2,
         name: '',
         description: '',
         rejectedCards: {
@@ -37,7 +37,7 @@ const db = {
         },
       },
       player3: {
-        id: 15,
+        id: 3,
         name: '',
         description: '',
         rejectedCards: {
@@ -47,7 +47,7 @@ const db = {
         },
       },
       player2: {
-        id: 15,
+        id: 4,
         description: '',
         rejectedCards: {
           dimension: '',
@@ -69,36 +69,36 @@ const db = {
         },
         debates: [
           {
-            player: players.player1,
+            player: 1,
             character: '',
             environment: '',
             proposedUsage: '',
             ReceivedArguments: [
               {
-                player: players.player1,
+                player: 2,
                 token: '',
                 debate: '',
               },
               {
-                player: players.player2,
+                player: 2,
                 token: '',
                 debate: '',
               },
             ],
           },
           {
-            player: players.player1,
+            player: 2,
             character: '',
             environment: '',
             proposedUsage: '',
             ReceivedArguments: [
               {
-                player: players.player1,
+                player: 3,
                 token: '',
                 debate: '',
               },
               {
-                player: players.player2,
+                player: 1,
                 token: '',
                 debate: '',
               },
@@ -106,7 +106,6 @@ const db = {
           },
         ],
       },
-      {},
     ],
   },
 };

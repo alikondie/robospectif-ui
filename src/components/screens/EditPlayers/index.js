@@ -6,7 +6,7 @@ import { PageLayout } from '../../common';
 
 const EditPlayerPage = ({ match, history }) => {
   const player = useSelector((state) => {
-    return state.players.find((player) => player.id == match.params.id);
+    return state.players.find((player) => player.id === match.params.id);
   });
   const dispatch = useDispatch();
   return (

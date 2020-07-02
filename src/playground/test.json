@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "date": 456,
+    "players": 6,
+    "animator": 1,
+    "context": "",
+    "observation": "",
+    "gameObservations": {
+      "setup": "",
+      "acceptanceOftheGame": "",
+      "attitudes": "",
+      "ludicAspects": "",
+      "exchanges": "",
+      "vaProblematics": ""
+    }
+  },
+  "players": [
+    {
+      "id": "1",
+      "description": "",
+      "name": "HAHA",
+      "rejectedCards": {
+        "dimension": ["Large"],
+        "locomotion": ["Tapis roulant"],
+        "equipments": ["Frigo", "Machine à café", "Bureau"]
+      }
+    },
+    {
+      "id": "2",
+      "description": "",
+      "name": "LALA",
+      "rejectedCards": {
+        "dimension": ["Large"],
+        "locomotion": ["Tapis roulant"],
+        "equipments": ["Frigo", "Machine à café", "Bureau"]
+      }
+    },
+    {
+      "id": "3",
+      "name": "SASHA",
+      "description": "",
+      "rejectedCards": {
+        "dimension": ["Large"],
+        "locomotion": ["Tapis roulant"],
+        "equipments": ["Frigo", "Machine à café", "Bureau"]
+      }
+    }
+  ],
+  "turns": [
+    {
+      "no": 1,
+      "conceptor": 1,
+      "car": {
+        "dimension": "",
+        "locomotion": "",
+        "automation": "",
+        "equipments": []
+      },
+      "debates": [
+        {
+          "player": "1",
+          "character": "",
+          "environment": "",
+          "proposedUsage": "",
+          "ReceivedArguments": [
+            { "player": "2", "token": "", "debate": "" },
+            { "player": "2", "token": "", "debate": "" }
+          ]
+        },
+        {
+          "player": "2",
+          "character": "",
+          "environment": "",
+          "proposedUsage": "",
+          "ReceivedArguments": [
+            { "player": "3", "token": "", "debate": "" },
+            { "player": "1", "token": "", "debate": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "no": "2",
+      "conceptor": "2",
+      "car": {
+        "dimension": "",
+        "locomotion": "",
+        "automation": "",
+        "equipments": []
+      },
+      "debates": [
+        {
+          "player": "1",
+          "character": "",
+          "environment": "",
+          "proposedUsage": "",
+          "ReceivedArguments": [
+            { "player": "2", "token": "", "debate": "" },
+            { "player": "2", "token": "", "debate": "" }
+          ]
+        },
+        {
+          "player": "2",
+          "character": "",
+          "environment": "",
+          "proposedUsage": "",
+          "ReceivedArguments": [
+            { "player": "3", "token": "", "debate": "" },
+            { "player": "1", "token": "", "debate": "" }
+          ]
+        }
+      ]
+    }
+  ]
+}
