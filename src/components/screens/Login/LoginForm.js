@@ -13,7 +13,6 @@ const loginValidation = Yup.object().shape({
 });
 
 export default ({ onSubmit }) => {
-  console.log(onSubmit);
   return (
     <div>
       <Formik
@@ -22,8 +21,9 @@ export default ({ onSubmit }) => {
           password: '',
         }}
         validationSchema={loginValidation}
-        onSubmit={() => {
-          onSubmit();
+        onSubmit={(values) => {
+          const user = values;
+          onSubmit(user);
         }}
       >
         <StyledForm>

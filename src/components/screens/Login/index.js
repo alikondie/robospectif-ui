@@ -9,11 +9,11 @@ const LoginPage = (props) => {
     <React.Fragment>
       <h1>Robospectif</h1>
       <LoginForm
-        onSubmit={() => {
-          const user = startLogin();
-          console.log(user);
-          dispatch(login(user));
-          props.history.push('/dashboard');
+        onSubmit={(userForm) => {
+          startLogin(userForm).then((user) => {
+            dispatch(login(user));
+            props.history.push('/dashboard');
+          });
         }}
       />
     </React.Fragment>
