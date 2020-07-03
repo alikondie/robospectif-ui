@@ -5,3 +5,7 @@ export const activateUpload = () => ({
 export const deactivateUpload = () => ({
   type: 'DEACTIVATE',
 });
+
+export const addStep = () => ({
+  type: 'NEXT_STEP',
+});

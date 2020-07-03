@@ -96,7 +96,7 @@ const GeneralInfosForm = ({ infos, onSubmit }) => {
             type='text'
             placeholder='Problématiques du VA soulevées dans les débats'
           />
-          <Button type='submit'>Submit</Button>
+          <Button type='submit'>Valider</Button>
         </StyledForm>
       </Formik>
     </div>
