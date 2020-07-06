@@ -3,7 +3,6 @@ import { PageLayout } from '../../common';
 import { useSelector } from 'react-redux';
 export default () => {
   const user = useSelector((state) => state.auth.user);
-  console.log('from dash', user);
   return (
     <PageLayout>
       <h1>

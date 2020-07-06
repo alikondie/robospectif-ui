@@ -3,9 +3,17 @@ import './App.css';
 import AppRouter from './routers/AppRouter';
 import configureStore from './store/configureStore';
 import { Provider } from 'react-redux';
-const store = configureStore();
+import { checkAuth } from './services/auth';
+import { login } from './store/actions/auth';
 
+export const store = configureStore();
 function App() {
+  const localUser = JSON.parse(localStorage.getItem('user')).user;
+  checkAuth(localUser).then((user) => {
+    console.log(user);
+
+    store.dispatch(login(user));
+  });
   return (
     <Provider store={store}>
       <div className='App'>

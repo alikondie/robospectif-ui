@@ -67,14 +67,11 @@ export const Header = () => {
     <HeaderWrapper>
       <Title>Robospectif</Title>
       <Menu>
-        <StyledLink to='/general-infos'>
-          <p>Partie</p>
+        <StyledLink to='/'>
+          <p>Tableau de bord</p>
         </StyledLink>
-        <StyledLink to='/players'>
-          <p>Joueurs</p>
-        </StyledLink>
-        <StyledLink to='/turns'>
-          <p>Tours</p>
+        <StyledLink to='/upload'>
+          <p>Ajouter à partir d'un fichier</p>
         </StyledLink>
       </Menu>
       <CopyRight>Created by Takie Yamani</CopyRight>

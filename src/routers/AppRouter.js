@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UploadRoute from './UploadRoute';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
@@ -10,13 +10,15 @@ import Login from '../components/screens/Login';
 import Register from '../components/screens/Register';
 import Dashborad from '../components/screens/Dashboard';
 import Upload from '../components/screens/Upload';
-const AppRouter = () => (
-  <Router>
-    <div>
+import NotFound from '../components/screens/NotFound';
+
+const AppRouter = () => {
+  return (
+    <Router>
       <Switch>
-        <PublicRoute path='/login' component={Login} />
         <PublicRoute path='/Register' component={Register} />
-        <PrivateRoute path='/dashboard' component={Dashborad} />
+        <PublicRoute path='/login' component={Login} />
+        <PrivateRoute path='/' component={Dashborad} exact />
         <PrivateRoute path='/upload' component={Upload} exact />
 
         <UploadRoute
@@ -36,9 +38,10 @@ const AppRouter = () => (
           component={EditPlayerPage}
           exact
         />
+        <Route component={NotFound} />
       </Switch>
-    </div>
-  </Router>
-);
+    </Router>
+  );
+};
 
 export default AppRouter;
