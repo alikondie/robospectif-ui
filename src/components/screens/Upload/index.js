@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setGeneralInfos } from '../../../store/actions/generalInfos';
 import { addPlayer } from '../../../store/actions/players';
-import { activateUpload } from '../../../store/actions/fileUpload';
+import { activateUpload } from '../../../store/actions/gameUpload';
 export default (props) => {
   const dispatch = useDispatch();
   const [jsonFile, setJsonFile] = useState({

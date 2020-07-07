@@ -1,15 +1,14 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Redirect } from 'react-router-dom';
-export const UploadRoute = ({ component: Component, ...rest }) => {
-  const isUploaded = useSelector((state) => state.gameUpload.isUploaded);
+export const CreateRoute = ({ component: Component, ...rest }) => {
   const currentStep = useSelector((state) => state.gameUpload.step);
   //console.log(rest.step);
   return (
     <Route
       {...rest}
       component={(props) =>
-        isUploaded && rest.step === currentStep ? (
+        rest.step === currentStep ? (
           <div>
             <Component {...props} />
           </div>
@@ -21,4 +20,4 @@ export const UploadRoute = ({ component: Component, ...rest }) => {
   );
 };
 
-export default UploadRoute;
+export default CreateRoute;

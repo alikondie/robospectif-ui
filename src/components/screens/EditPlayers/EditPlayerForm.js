@@ -1,7 +1,7 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { Input, TextArea, StyledForm } from '../../common';
-const EditPlayerForm = ({ player, onSubmit }) => {
+const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
   //const rejectedCards = {};
   return (
     <div>
@@ -9,6 +9,9 @@ const EditPlayerForm = ({ player, onSubmit }) => {
         initialValues={{
           name: player.name,
           description: player.description,
+          dimension: player.rejectedCards.dimension,
+          locomotion: player.rejectedCards.locomotion,
+          equipments: player.rejectedCards.equipments,
         }}
         onSubmit={(values) => {
           onSubmit({ ...values });
@@ -20,7 +23,7 @@ const EditPlayerForm = ({ player, onSubmit }) => {
             name='name'
             type='text'
             placeholder='Nom/Prénom'
-            disabled
+            disabled={isUpload ? 'disabled' : ''}
           />
           <TextArea
             label='Description'
@@ -29,16 +32,31 @@ const EditPlayerForm = ({ player, onSubmit }) => {
           />
           <h2>Carte rejetées</h2>
           <p>Dimension</p>
-          {player.rejectedCards.dimension.map((card) => (
-            <p key={card[0]}>{card}</p>
+          {player.rejectedCards.dimension.map((card, index) => (
+            <Input
+              name={`dimension[${index}]`}
+              type='text'
+              placeholder='dimension'
+              disabled={isUpload ? 'disabled' : ''}
+            />
           ))}
           <p>Locomotion</p>
-          {player.rejectedCards.locomotion.map((card) => (
-            <p key={card[0]}>{card}</p>
+          {player.rejectedCards.locomotion.map((card, index) => (
+            <Input
+              name={`locomotion[${index}]`}
+              type='text'
+              placeholder='dimension'
+              disabled={isUpload ? 'disabled' : ''}
+            />
           ))}
           <p>Equipements</p>
-          {player.rejectedCards.dimension.map((card) => (
-            <p key={card[0]}>{card}</p>
+          {player.rejectedCards.equipments.map((card, index) => (
+            <Input
+              name={`equipments[${index}]`}
+              type='text'
+              placeholder='dimension'
+              disabled={isUpload ? 'disabled' : ''}
+            />
           ))}
         </StyledForm>
       </Formik>

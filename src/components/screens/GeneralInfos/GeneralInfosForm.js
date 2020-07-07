@@ -5,6 +5,10 @@ import * as Yup from 'yup';
 
 // bug in yup fix it!!
 const generalInfosValidation = Yup.object().shape({
+  players: Yup.number()
+    .min(4, 'Le nombre doit être entre 4 et 6')
+    .max(6, 'Le nombre doit être entre 4 et 6')
+    .required('Champ requis'),
   animator: Yup.string()
     .max(20, '20 caractères maximum est permis')
     .required('Champ requis'),
@@ -17,14 +21,13 @@ const generalInfosValidation = Yup.object().shape({
   exchanges: Yup.string().required('Champ requis'),
   vaProblematics: Yup.string().required('Champ requis'),
 });
-const GeneralInfosForm = ({ infos, onSubmit }) => {
+const GeneralInfosForm = ({ infos, onSubmit, isUpload }) => {
   return (
     <div>
-      <h2>Date de la partie {infos.date}</h2>
-      <h2>Nombre de joueurs : {infos.players}</h2>
-
       <Formik
         initialValues={{
+          date: infos.date,
+          players: infos.players,
           animator: infos.animator,
           context: infos.context,
           observations: infos.observations,
@@ -41,6 +44,20 @@ const GeneralInfosForm = ({ infos, onSubmit }) => {
         }}
       >
         <StyledForm>
+          <Input
+            disabled={isUpload ? 'disabled' : ''}
+            label='Date'
+            name='date'
+            type='text'
+            placeholder='Date'
+          />
+          <Input
+            disabled={isUpload ? 'disabled' : ''}
+            label='Nombre de joueurs'
+            name='players'
+            type='text'
+            placeholder='Nombre de joueurs'
+          />
           <Input
             label='Animateur'
             name='animator'
@@ -96,7 +113,7 @@ const GeneralInfosForm = ({ infos, onSubmit }) => {
             type='text'
             placeholder='Problématiques du VA soulevées dans les débats'
           />
-          <Button type='submit'>Valider</Button>
+          <Button type='submit'>Suivant</Button>
         </StyledForm>
       </Formik>
     </div>

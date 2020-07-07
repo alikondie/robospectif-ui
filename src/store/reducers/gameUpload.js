@@ -1,6 +1,6 @@
-const fileUploadDefaultState = { isUploaded: false, step: 0 };
+const gameUploadDefaultState = { isUploaded: false, step: 1 };
 
-export default (state = fileUploadDefaultState, action) => {
+export default (state = gameUploadDefaultState, action) => {
   switch (action.type) {
     case 'ACTIVATE':
       return { isUploaded: true, step: 1 };

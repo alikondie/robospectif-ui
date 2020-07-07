@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import UploadRoute from './UploadRoute';
 import PublicRoute from './PublicRoute';
 import PrivateRoute from './PrivateRoute';
+import CreateRoute from './CreateRoute';
 import GeneralInfos from '../components/screens/GeneralInfos';
 import Players from '../components/screens/Players';
 import EditPlayerPage from '../components/screens/EditPlayers/';
@@ -20,7 +21,18 @@ const AppRouter = () => {
         <PublicRoute path='/login' component={Login} />
         <PrivateRoute path='/' component={Dashborad} exact />
         <PrivateRoute path='/upload' component={Upload} exact />
-
+        <CreateRoute
+          path='/create/general-infos'
+          component={GeneralInfos}
+          exact
+          step={1}
+        />
+        <CreateRoute
+          path='/create/players'
+          component={Players}
+          exact
+          step={2}
+        />
         <UploadRoute
           path='/upload/general-infos'
           component={GeneralInfos}
@@ -33,8 +45,13 @@ const AppRouter = () => {
           exact
           step={2}
         />
-        <PublicRoute
+        <PrivateRoute
           path='/upload/edit-player/:id'
+          component={EditPlayerPage}
+          exact
+        />
+        <PrivateRoute
+          path='/create/edit-player/:id'
           component={EditPlayerPage}
           exact
         />

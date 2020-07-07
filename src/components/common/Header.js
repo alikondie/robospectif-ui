@@ -70,8 +70,17 @@ export const Header = () => {
         <StyledLink to='/'>
           <p>Tableau de bord</p>
         </StyledLink>
+        <StyledLink to='/users'>
+          <p>Consulter les collaborateurs</p>
+        </StyledLink>
+        <StyledLink to='/games'>
+          <p>Consulter les parties</p>
+        </StyledLink>
         <StyledLink to='/upload'>
           <p>Ajouter à partir d'un fichier</p>
+        </StyledLink>
+        <StyledLink to='/create/general-infos'>
+          <p>Ajouter une partie</p>
         </StyledLink>
       </Menu>
       <CopyRight>Created by Takie Yamani</CopyRight>

@@ -1,24 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PlayerItem from './PlayerItem';
 import { PageLayout } from '../../common';
 
 const PlayersPage = (props) => {
-  /*console.log(
-    props.players.map((player) => <PlayerItem key={player.id} {...player} />)
-  );*/
+  const players = useSelector((state) => state.players);
+  const isUpload = useSelector((state) => state.gameUpload.isUploaded);
   return (
     <PageLayout>
       <h1>Joueurs</h1>
-      {props.players.map((player) => (
-        <PlayerItem key={player.id} {...player} />
+      {players.map((player) => (
+        <PlayerItem key={player.id} {...player} isUpload={isUpload} />
       ))}
     </PageLayout>
   );
 };
 
-const mapStateToProps = (state) => ({
-  players: state.players,
-});
-
-export default connect(mapStateToProps)(PlayersPage);
+export default PlayersPage;
