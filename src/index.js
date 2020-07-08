@@ -30,8 +30,6 @@ ReactDOM.render(
 const localUser = JSON.parse(localStorage.getItem('user')).user;
 checkAuth(localUser)
   .then((user) => {
-    console.log(user);
-
     store.dispatch(login(user));
     renderApp();
   })

@@ -4,7 +4,8 @@ import { PageLayout, Button } from '../../common';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
 import { setGeneralInfos } from '../../../store/actions/generalInfos';
-import { addPlayer } from '../../../store/actions/players';
+import { setPlayers } from '../../../store/actions/players';
+import { setTurns } from '../../../store/actions/turns';
 import { activateUpload } from '../../../store/actions/gameUpload';
 export default (props) => {
   const dispatch = useDispatch();
@@ -37,9 +38,9 @@ export default (props) => {
 
   const dispatchToStore = (jsonFile) => {
     dispatch(setGeneralInfos(jsonFile.stats));
-    jsonFile.player.forEach((player) => {
-      dispatch(addPlayer(player));
-    });
+    dispatch(setPlayers(jsonFile.player));
+    dispatch(setPlayers(jsonFile.player));
+    dispatch(setTurns(jsonFile.turns));
     dispatch(activateUpload());
     props.history.push('/upload/general-infos');
   };

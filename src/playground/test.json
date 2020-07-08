@@ -48,67 +48,43 @@
   ],
   "turns": [
     {
-      "no": 1,
-      "conceptor": 1,
-      "car": {
-        "dimension": "",
-        "locomotion": "",
-        "automation": "",
-        "equipments": []
-      },
-      "debates": [
-        {
-          "player": "1",
-          "character": "",
-          "environment": "",
-          "proposedUsage": "",
-          "ReceivedArguments": [
-            { "player": "2", "token": "", "debate": "" },
-            { "player": "2", "token": "", "debate": "" }
-          ]
-        },
-        {
-          "player": "2",
-          "character": "",
-          "environment": "",
-          "proposedUsage": "",
-          "ReceivedArguments": [
-            { "player": "3", "token": "", "debate": "" },
-            { "player": "1", "token": "", "debate": "" }
-          ]
-        }
-      ]
+      "no": "1",
+      "conceptor": "1",
+      "dimension": "",
+      "locomotion": "",
+      "automation": "",
+      "equipments": ["", "", ""]
     },
     {
       "no": "2",
       "conceptor": "2",
-      "car": {
-        "dimension": "",
-        "locomotion": "",
-        "automation": "",
-        "equipments": []
-      },
-      "debates": [
-        {
-          "player": "1",
-          "character": "",
-          "environment": "",
-          "proposedUsage": "",
-          "ReceivedArguments": [
-            { "player": "2", "token": "", "debate": "" },
-            { "player": "2", "token": "", "debate": "" }
-          ]
-        },
-        {
-          "player": "2",
-          "character": "",
-          "environment": "",
-          "proposedUsage": "",
-          "ReceivedArguments": [
-            { "player": "3", "token": "", "debate": "" },
-            { "player": "1", "token": "", "debate": "" }
-          ]
-        }
+      "dimension": "",
+      "locomotion": "",
+      "automation": "",
+      "equipments": ["", "", ""]
+    }
+  ],
+  "debates": [
+    {
+      "turn": "1",
+      "player": "1",
+      "character": "",
+      "environment": "",
+      "proposedUsage": "",
+      "ReceivedArguments": [
+        { "player": "2", "token": "", "debate": "" },
+        { "player": "2", "token": "", "debate": "" }
+      ]
+    },
+    {
+      "turn": "1",
+      "player": "2",
+      "character": "",
+      "environment": "",
+      "proposedUsage": "",
+      "ReceivedArguments": [
+        { "player": "3", "token": "", "debate": "" },
+        { "player": "1", "token": "", "debate": "" }
       ]
     }
   ]

@@ -9,7 +9,7 @@ export const addPlayer = (player) => ({
   player,
 });
 
-export const setPlayer = (players) => ({
+export const setPlayers = (players) => ({
   type: 'SET_PLAYERS',
   players,
 });

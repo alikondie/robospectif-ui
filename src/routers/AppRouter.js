@@ -6,7 +6,9 @@ import PrivateRoute from './PrivateRoute';
 import CreateRoute from './CreateRoute';
 import GeneralInfos from '../components/screens/GeneralInfos';
 import Players from '../components/screens/Players';
-import EditPlayerPage from '../components/screens/EditPlayers/';
+import EditPlayer from '../components/screens/EditPlayers/';
+import EditTurn from '../components/screens/EditTurns';
+import Turns from '../components/screens/Turns';
 import Login from '../components/screens/Login';
 import Register from '../components/screens/Register';
 import Dashborad from '../components/screens/Dashboard';
@@ -33,6 +35,7 @@ const AppRouter = () => {
           exact
           step={2}
         />
+        <CreateRoute path='/create/turns' component={Turns} exact step={3} />
         <UploadRoute
           path='/upload/general-infos'
           component={GeneralInfos}
@@ -45,16 +48,19 @@ const AppRouter = () => {
           exact
           step={2}
         />
+        <UploadRoute path='/upload/Turns' component={Turns} exact step={3} />
         <PrivateRoute
           path='/upload/edit-player/:id'
-          component={EditPlayerPage}
+          component={EditPlayer}
           exact
         />
         <PrivateRoute
           path='/create/edit-player/:id'
-          component={EditPlayerPage}
+          component={EditPlayer}
           exact
         />
+        <PrivateRoute path='/upload/edit-turn/:id' component={EditTurn} exact />
+        <PrivateRoute path='/create/edit-turn/:id' component={EditTurn} exact />
         <Route component={NotFound} />
       </Switch>
     </Router>
