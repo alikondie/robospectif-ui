@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { setGeneralInfos } from '../../../store/actions/generalInfos';
 import { setPlayers } from '../../../store/actions/players';
 import { setTurns } from '../../../store/actions/turns';
+import { setDebates } from '../../../store/actions/debates';
 import { activateUpload } from '../../../store/actions/gameUpload';
 export default (props) => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ export default (props) => {
       stats: result.stats,
       player: result.players,
       turns: result.turns,
+      debates: result.debates,
     });
     setUploaded(true);
   };
@@ -41,6 +43,7 @@ export default (props) => {
     dispatch(setPlayers(jsonFile.player));
     dispatch(setPlayers(jsonFile.player));
     dispatch(setTurns(jsonFile.turns));
+    dispatch(setDebates(jsonFile.debates));
     dispatch(activateUpload());
     props.history.push('/upload/general-infos');
   };

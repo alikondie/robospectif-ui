@@ -1,8 +1,14 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { Input, StyledForm } from '../../common';
+import { useSelector } from 'react-redux';
+import DebateItem from '../Debates/DebateItem';
 const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
   //const rejectedCards = {};
+  let debates = useSelector((state) =>
+    state.debates.filter((debate) => debate.turn === turn.no)
+  );
+
   return (
     <div>
       <Formik
@@ -54,6 +60,15 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
               type='text'
               placeholder='Equipement'
               disabled={isUpload ? 'disabled' : ''}
+            />
+          ))}
+          <p>Conceptions</p>
+          {debates.map((debate) => (
+            <DebateItem
+              key={debate.id}
+              {...debate}
+              {...turn}
+              isUpload={isUpload}
             />
           ))}
         </StyledForm>

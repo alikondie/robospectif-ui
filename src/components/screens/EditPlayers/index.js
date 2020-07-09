@@ -8,6 +8,7 @@ const EditPlayerPage = ({ match, history }) => {
   const player = useSelector((state) => {
     return state.players.find((player) => player.id === match.params.id);
   });
+  const isUpload = useSelector((state) => state.gameUpload.isUploaded);
   const dispatch = useDispatch();
   return (
     <PageLayout>
@@ -18,6 +19,7 @@ const EditPlayerPage = ({ match, history }) => {
           dispatch(editPlayer(player, player.id));
           history.push('/players');
         }}
+        isUpload={isUpload}
       />
     </PageLayout>
   );

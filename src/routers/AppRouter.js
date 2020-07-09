@@ -8,6 +8,7 @@ import GeneralInfos from '../components/screens/GeneralInfos';
 import Players from '../components/screens/Players';
 import EditPlayer from '../components/screens/EditPlayers/';
 import EditTurn from '../components/screens/EditTurns';
+import EditDebate from '../components/screens/EditDebates';
 import Turns from '../components/screens/Turns';
 import Login from '../components/screens/Login';
 import Register from '../components/screens/Register';
@@ -61,6 +62,16 @@ const AppRouter = () => {
         />
         <PrivateRoute path='/upload/edit-turn/:id' component={EditTurn} exact />
         <PrivateRoute path='/create/edit-turn/:id' component={EditTurn} exact />
+        <PrivateRoute
+          path='/upload/edit-debate/:id'
+          component={EditDebate}
+          exact
+        />
+        <PrivateRoute
+          path='/create/edit-debate/:id'
+          component={EditDebate}
+          exact
+        />
         <Route component={NotFound} />
       </Switch>
     </Router>

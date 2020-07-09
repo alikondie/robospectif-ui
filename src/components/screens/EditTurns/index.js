@@ -8,6 +8,7 @@ const EditTurnPage = ({ match, history }) => {
   const turn = useSelector((state) => {
     return state.turns.find((turn) => turn.no === match.params.id);
   });
+  const isUpload = useSelector((state) => state.gameUpload.isUploaded);
   const dispatch = useDispatch();
   return (
     <PageLayout>
@@ -18,6 +19,7 @@ const EditTurnPage = ({ match, history }) => {
           dispatch(editTurn(turn, turn.id));
           history.push('/turns');
         }}
+        isUpload={isUpload}
       />
     </PageLayout>
   );

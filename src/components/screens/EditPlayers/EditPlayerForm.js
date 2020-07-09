@@ -2,7 +2,7 @@ import React from 'react';
 import { Formik } from 'formik';
 import { Input, TextArea, StyledForm } from '../../common';
 const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
-  //const rejectedCards = {};
+  console.log(isUpload);
   return (
     <div>
       <Formik

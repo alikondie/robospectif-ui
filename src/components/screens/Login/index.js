@@ -16,7 +16,7 @@ const LoginPage = (props) => {
               'user',
               JSON.stringify({ token: user.token, user: user.user._id })
             );
-            props.history.push('/dashboard');
+            props.history.push('/');
           });
         }}
       />
