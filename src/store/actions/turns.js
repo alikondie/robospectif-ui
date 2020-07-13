@@ -1,7 +1,7 @@
-export const editTurn = (updates, id) => ({
+export const editTurn = (updates, no) => ({
   type: 'EDIT_TURN',
   updates,
-  id,
+  no,
 });
 
 export const addTurn = (turn) => ({

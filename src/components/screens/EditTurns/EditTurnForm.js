@@ -29,8 +29,8 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
     <div>
       <Formik
         initialValues={{
-          conceptor: turn.conceptor,
-          automation: turn.description,
+          player: turn.player,
+          automation: turn.automation,
           dimension: turn.dimension,
           locomotion: turn.locomotion,
           equipments: turn.equipments,
@@ -42,7 +42,7 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
         <StyledForm>
           <Input
             label='Concepteur'
-            name='conceptor'
+            name='player'
             type='text'
             placeholder='Concepteur'
             disabled={isUpload ? 'disabled' : ''}

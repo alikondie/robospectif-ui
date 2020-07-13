@@ -60,10 +60,10 @@
     {
       "no": "1",
       "player": "1",
-      "dimension": "Grande",
-      "locomotion": "Roues",
-      "automation": "Full auto",
-      "equipments": ["Frigo", "Clima", "Clima"]
+      "dimension": "Petite",
+      "locomotion": "Chenilles",
+      "automation": "Manuel",
+      "equipments": ["Frigo", "Frigo", "Frigo"]
     },
     {
       "no": "2",
@@ -71,7 +71,7 @@
       "dimension": "Grande",
       "locomotion": "Roues",
       "automation": "Full auto",
-      "equipments": ["Frigo", "Clima", "Clima"]
+      "equipments": ["Clima", "Clima", "Clima"]
     }
   ],
   "debates": [
