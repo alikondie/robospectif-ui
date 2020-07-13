@@ -1,6 +1,6 @@
 const generalInfosDefaultState = {
   date: 0,
-  players: 0,
+  numberOfPlayers: 0,
   animator: '',
   context: '',
   observations: '',

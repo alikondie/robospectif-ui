@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 
 // bug in yup fix it!!
 const generalInfosValidation = Yup.object().shape({
-  players: Yup.number()
+  numberOfPlayers: Yup.number()
     .min(4, 'Le nombre doit être entre 4 et 6')
     .max(6, 'Le nombre doit être entre 4 et 6')
     .required('Champ requis'),
@@ -27,7 +27,7 @@ const GeneralInfosForm = ({ infos, onSubmit, isUpload }) => {
       <Formik
         initialValues={{
           date: infos.date,
-          players: infos.players,
+          numberOfPlayers: infos.numberOfPlayers,
           animator: infos.animator,
           context: infos.context,
           observations: infos.observations,
@@ -54,7 +54,7 @@ const GeneralInfosForm = ({ infos, onSubmit, isUpload }) => {
           <Input
             disabled={isUpload ? 'disabled' : ''}
             label='Nombre de joueurs'
-            name='players'
+            name='numberOfPlayers'
             type='text'
             placeholder='Nombre de joueurs'
           />

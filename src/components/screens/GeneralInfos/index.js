@@ -22,7 +22,7 @@ const GeneralInfosPage = (props) => {
           if (isUpload) props.history.push('/upload/players');
           // create players templates according to their numbers
           else {
-            for (let i = 0; i < infos.players; i++)
+            for (let i = 0; i < infos.numberOfPlayers; i++)
               dispatch(
                 addPlayer({
                   id: '' + (i + 1),

@@ -22,7 +22,9 @@ const EditDebatePage = ({ match, history }) => {
         isUpload={isUpload}
         onSubmit={(debate) => {
           dispatch(editDebate(debate, debate.id));
-          history.push('/turns');
+          isUpload
+            ? history.push('/upload/edit-turn/' + turn.no)
+            : history.push('/create/edit-turn/' + turn.no);
         }}
       />
     </PageLayout>

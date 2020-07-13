@@ -1,7 +1,7 @@
 {
   "stats": {
     "date": 456,
-    "players": 6,
+    "numberOfPlayers": 4,
     "animator": 1,
     "context": "",
     "observation": "",
@@ -44,24 +44,34 @@
         "locomotion": ["Tapis roulant"],
         "equipments": ["Frigo", "Machine à café", "Bureau"]
       }
+    },
+    {
+      "id": "4",
+      "description": "",
+      "name": "TikTak",
+      "rejectedCards": {
+        "dimension": ["Large"],
+        "locomotion": ["Tapis roulant"],
+        "equipments": ["Frigo", "Machine à café", "Bureau"]
+      }
     }
   ],
   "turns": [
     {
       "no": "1",
-      "conceptor": "1",
-      "dimension": "",
-      "locomotion": "",
-      "automation": "",
-      "equipments": ["", "", ""]
+      "player": "1",
+      "dimension": "Grande",
+      "locomotion": "Roues",
+      "automation": "Full auto",
+      "equipments": ["Frigo", "Clima", "Clima"]
     },
     {
       "no": "2",
-      "conceptor": "2",
-      "dimension": "",
-      "locomotion": "",
-      "automation": "",
-      "equipments": ["", "", ""]
+      "player": "2",
+      "dimension": "Grande",
+      "locomotion": "Roues",
+      "automation": "Full auto",
+      "equipments": ["Frigo", "Clima", "Clima"]
     }
   ],
   "debates": [
@@ -70,9 +80,9 @@
       "turn": "1",
       "no": "1",
       "player": "1",
-      "character": "",
-      "environment": "",
-      "proposedUsage": "",
+      "character": "Jessica",
+      "environment": "Société",
+      "proposedUsage": "rezezrsdfdsfezrrzerezfdsfsd",
       "ReceivedArguments": [
         { "player": "2", "token": "", "debate": "" },
         { "player": "2", "token": "", "debate": "" }
@@ -83,9 +93,9 @@
       "turn": "1",
       "no": "2",
       "player": "2",
-      "character": "",
-      "environment": "",
-      "proposedUsage": "",
+      "character": "Jessica",
+      "environment": "Société",
+      "proposedUsage": "fdsfrezrezfdsrerzetreter",
       "ReceivedArguments": [
         { "player": "3", "token": "", "debate": "" },
         { "player": "1", "token": "", "debate": "" }

@@ -17,7 +17,9 @@ const EditPlayerPage = ({ match, history }) => {
         player={player}
         onSubmit={(player) => {
           dispatch(editPlayer(player, player.id));
-          history.push('/players');
+          isUpload
+            ? history.push('/upload/players')
+            : history.push('/create/players');
         }}
         isUpload={isUpload}
       />

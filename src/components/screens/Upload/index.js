@@ -41,7 +41,6 @@ export default (props) => {
   const dispatchToStore = (jsonFile) => {
     dispatch(setGeneralInfos(jsonFile.stats));
     dispatch(setPlayers(jsonFile.player));
-    dispatch(setPlayers(jsonFile.player));
     dispatch(setTurns(jsonFile.turns));
     dispatch(setDebates(jsonFile.debates));
     dispatch(activateUpload());

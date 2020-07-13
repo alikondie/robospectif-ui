@@ -1,6 +1,6 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Input, TextArea, StyledForm } from '../../common';
+import { Input, TextArea, StyledForm, Button } from '../../common';
 const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
   console.log(isUpload);
   return (
@@ -58,6 +58,7 @@ const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
               disabled={isUpload ? 'disabled' : ''}
             />
           ))}
+          <Button type='submit'>Valider</Button>
         </StyledForm>
       </Formik>
     </div>

@@ -1,13 +1,29 @@
 import React from 'react';
 import { Formik } from 'formik';
-import { Input, StyledForm } from '../../common';
-import { useSelector } from 'react-redux';
+import { Input, StyledForm, Button } from '../../common';
+import { useSelector, useDispatch } from 'react-redux';
+import { addDebate } from '../../../store/actions/debates';
 import DebateItem from '../Debates/DebateItem';
 const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
   //const rejectedCards = {};
-  let debates = useSelector((state) =>
+  let relatedDebates = useSelector((state) =>
     state.debates.filter((debate) => debate.turn === turn.no)
   );
+  const numberOfDebates = useSelector((state) => state.debates.length);
+  const dispatch = useDispatch();
+  const addDebateFromLink = () => {
+    dispatch(
+      addDebate({
+        id: (numberOfDebates + 1).toString(),
+        turn: turn.no,
+        player: '',
+        character: '',
+        environment: '',
+        proposedUsage: '',
+        ReceivedArguments: [],
+      })
+    );
+  };
 
   return (
     <div>
@@ -63,7 +79,7 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
             />
           ))}
           <p>Conceptions</p>
-          {debates.map((debate) => (
+          {relatedDebates.map((debate) => (
             <DebateItem
               key={debate.id}
               {...debate}
@@ -71,6 +87,14 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
               isUpload={isUpload}
             />
           ))}
+          {!isUpload ? (
+            <p style={{ cursor: 'pointer' }} onClick={addDebateFromLink}>
+              Ajouter un débat
+            </p>
+          ) : (
+            ''
+          )}
+          <Button type='submit'>Valider</Button>
         </StyledForm>
       </Formik>
     </div>

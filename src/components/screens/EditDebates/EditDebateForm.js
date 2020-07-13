@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import { Input, StyledForm, TextArea } from '../../common';
+import { Input, StyledForm, TextArea, Button } from '../../common';
+import { editDebate } from '../../../store/actions/debates';
+import { useDispatch } from 'react-redux';
 const EditDebateForm = ({ debate, onSubmit, isUpload }) => {
-  //const rejectedCards = {};
+  const dispatch = useDispatch();
+  const [argLength, setArgLength] = useState(0);
+  const addArgument = () => {
+    dispatch(
+      editDebate(debate.id, {
+        ReceivedArguments: debate.ReceivedArguments.push({
+          player: '',
+          token: '',
+          debate: '',
+        }),
+      })
+    );
+    const length = argLength + 1;
+    setArgLength(length);
+  };
   return (
     <div>
       <Formik
@@ -58,24 +74,32 @@ const EditDebateForm = ({ debate, onSubmit, isUpload }) => {
           {debate.ReceivedArguments.map((argument, index) => (
             <React.Fragment key={`${index}`}>
               <Input
-                name={`equipments[${index}].player`}
+                name={`ReceivedArguments[${index}].player`}
                 type='text'
                 placeholder='Joueur'
                 disabled={isUpload ? 'disabled' : ''}
               />
               <Input
-                name={`equipments[${index}].token`}
+                name={`ReceivedArguments[${index}].token`}
                 type='text'
                 placeholder='Jeton'
                 disabled={isUpload ? 'disabled' : ''}
               />
               <TextArea
-                name={`equipments[${index}].debate`}
+                name={`ReceivedArguments[${index}].debate`}
                 type='text'
                 placeholder='Débat'
               />
             </React.Fragment>
           ))}
+          {!isUpload ? (
+            <p style={{ cursor: 'pointer' }} onClick={addArgument}>
+              Ajouter un argument
+            </p>
+          ) : (
+            ''
+          )}
+          <Button type='submit'>Valider</Button>
         </StyledForm>
       </Formik>
     </div>

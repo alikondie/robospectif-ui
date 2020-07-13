@@ -17,7 +17,9 @@ const EditTurnPage = ({ match, history }) => {
         turn={turn}
         onSubmit={(turn) => {
           dispatch(editTurn(turn, turn.id));
-          history.push('/turns');
+          isUpload
+            ? history.push('/upload/turns')
+            : history.push('/create/turns');
         }}
         isUpload={isUpload}
       />
