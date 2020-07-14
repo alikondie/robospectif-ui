@@ -4,12 +4,9 @@ export default (state = turnsDefaultState, action) => {
   switch (action.type) {
     case 'EDIT_TURN':
       return state.map((turn) => {
-        console.log(action.no);
         if (turn.no === action.no) {
-          console.log(turn);
           return { ...turn, ...action.updates, filled: true };
         } else {
-          console.log(turn);
           return turn;
         }
       });

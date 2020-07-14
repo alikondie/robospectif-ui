@@ -5,15 +5,15 @@ export default (state = debatesDefaultState, action) => {
     case 'EDIT_DEBATE':
       return state.map((debate) => {
         if (debate.id === action.id) {
-          return { ...debate, ...action.updates };
+          return { ...debate, ...action.updates, filled: true };
         } else {
           return debate;
         }
       });
     case 'ADD_DEBATE':
-      return [...state, action.debate];
+      return [...state, { ...action.debate, filled: false }];
     case 'SET_DEBATES':
-      return action.debates;
+      return action.debates.map((debate) => ({ ...debate, filled: false }));
     default:
       return state;
   }

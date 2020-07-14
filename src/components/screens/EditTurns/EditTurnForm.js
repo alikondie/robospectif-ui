@@ -1,9 +1,25 @@
 import React from 'react';
+import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Input, StyledForm, Button } from '../../common';
 import { useSelector, useDispatch } from 'react-redux';
 import { addDebate } from '../../../store/actions/debates';
 import DebateItem from '../Debates/DebateItem';
+
+const turnsValidation = Yup.object().shape({
+  player: Yup.string().required('Champ requis'),
+  automation: Yup.string().required('Champ requis'),
+  dimension: Yup.string().required('Champ requis'),
+  locomotion: Yup.string().required('Champ requis'),
+  equipments: Yup.array().of(Yup.string().required('Champ requis')),
+  debates: Yup.array().of(
+    Yup.bool().oneOf(
+      [true],
+      'Les informations du débate doivent être remplises'
+    )
+  ),
+});
+
 const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
   //const rejectedCards = {};
   let relatedDebates = useSelector((state) =>
@@ -34,7 +50,9 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
           dimension: turn.dimension,
           locomotion: turn.locomotion,
           equipments: turn.equipments,
+          debates: relatedDebates.map((debate) => debate.filled),
         }}
+        validationSchema={turnsValidation}
         onSubmit={(values) => {
           onSubmit({ ...values });
         }}
@@ -79,13 +97,18 @@ const EditTurnForm = ({ turn, onSubmit, isUpload }) => {
             />
           ))}
           <p>Conceptions</p>
-          {relatedDebates.map((debate) => (
-            <DebateItem
-              key={debate.id}
-              {...debate}
-              {...turn}
-              isUpload={isUpload}
-            />
+          {relatedDebates.map((debate, index) => (
+            <React.Fragment key={debate.id}>
+              <DebateItem {...debate} {...turn} isUpload={isUpload} />
+              <Input
+                label=''
+                name={`debates[${index}]`}
+                type='checkbox'
+                checked={debate.filled}
+                disabled
+                hidden
+              />
+            </React.Fragment>
           ))}
           {!isUpload ? (
             <p style={{ cursor: 'pointer' }} onClick={addDebateFromLink}>

@@ -1,8 +1,17 @@
 import React from 'react';
+import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Input, TextArea, StyledForm, Button } from '../../common';
+
+const playersValidation = Yup.object().shape({
+  name: Yup.string().required('Champ requis'),
+  description: Yup.string().required('Champ requis'),
+  dimension: Yup.string().required('Champ requis'),
+  locomotion: Yup.string().required('Champ requis'),
+  equipments: Yup.array().of(Yup.string().required('Champ requis')),
+});
+
 const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
-  console.log(isUpload);
   return (
     <div>
       <Formik
@@ -13,6 +22,7 @@ const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
           locomotion: player.rejectedCards.locomotion,
           equipments: player.rejectedCards.equipments,
         }}
+        validationSchema={playersValidation}
         onSubmit={(values) => {
           onSubmit({ ...values });
         }}

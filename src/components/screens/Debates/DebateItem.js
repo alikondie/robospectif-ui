@@ -5,7 +5,7 @@ const DebateItem = (props) => {
     return (
       <div>
         <Link to={`/upload/edit-debate/${props.id}`} turn={props.turn}>
-          <h1>Debat n° {props.no}</h1>
+          <h1>Debat n° {props.id}</h1>
         </Link>
       </div>
     );
@@ -13,7 +13,7 @@ const DebateItem = (props) => {
     return (
       <div>
         <Link to={`/create/edit-debate/${props.id}`} turn={props.turn}>
-          <h1>Debate n° {props.no}</h1>
+          <h1>Debate n° {props.id}</h1>
         </Link>
       </div>
     );

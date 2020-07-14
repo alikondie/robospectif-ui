@@ -5,15 +5,16 @@ export default (state = playersDefaultState, action) => {
     case 'EDIT_PLAYER':
       return state.map((player) => {
         if (player.id === action.id) {
-          return { ...player, ...action.updates };
+          console.log('got here');
+          return { ...player, ...action.updates, filled: true };
         } else {
           return player;
         }
       });
     case 'ADD_PLAYER':
-      return [...state, action.player];
+      return [...state, { ...action.player, filled: false }];
     case 'SET_PLAYERS':
-      return action.players;
+      return action.players.map((player) => ({ ...player, filled: false }));
     default:
       return state;
   }

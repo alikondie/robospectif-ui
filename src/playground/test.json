@@ -84,8 +84,8 @@
       "environment": "Société",
       "proposedUsage": "rezezrsdfdsfezrrzerezfdsfsd",
       "ReceivedArguments": [
-        { "player": "2", "token": "", "debate": "" },
-        { "player": "2", "token": "", "debate": "" }
+        { "player": "2", "token": "Société", "debate": "" },
+        { "player": "2", "token": "Environnement", "debate": "" }
       ]
     },
     {
@@ -97,8 +97,8 @@
       "environment": "Société",
       "proposedUsage": "fdsfrezrezfdsrerzetreter",
       "ReceivedArguments": [
-        { "player": "3", "token": "", "debate": "" },
-        { "player": "1", "token": "", "debate": "" }
+        { "player": "3", "token": "Personnel", "debate": "" },
+        { "player": "1", "token": "Société", "debate": "" }
       ]
     }
   ]

@@ -1,8 +1,25 @@
 import React, { useState } from 'react';
+import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { Input, StyledForm, TextArea, Button } from '../../common';
 import { editDebate } from '../../../store/actions/debates';
 import { useDispatch } from 'react-redux';
+
+const debatesValidation = Yup.object().shape({
+  turn: Yup.string().required('Champ requis'),
+  player: Yup.string().required('Champ requis'),
+  character: Yup.string().required('Champ requis'),
+  environment: Yup.string().required('Champ requis'),
+  proposedUsage: Yup.string().required('Champ requis'),
+  ReceivedArguments: Yup.array().of(
+    Yup.object().shape({
+      player: Yup.string().required('Champ requis'),
+      token: Yup.string().required('Champ requis'),
+      debate: Yup.string().required('Champ requis'),
+    })
+  ),
+});
+
 const EditDebateForm = ({ debate, onSubmit, isUpload }) => {
   const dispatch = useDispatch();
   const [argLength, setArgLength] = useState(0);
@@ -30,6 +47,7 @@ const EditDebateForm = ({ debate, onSubmit, isUpload }) => {
           proposedUsage: debate.proposedUsage,
           ReceivedArguments: debate.ReceivedArguments,
         }}
+        validationSchema={debatesValidation}
         onSubmit={(values) => {
           onSubmit({ ...values });
         }}

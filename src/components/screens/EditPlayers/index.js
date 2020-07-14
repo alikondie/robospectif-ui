@@ -15,8 +15,8 @@ const EditPlayerPage = ({ match, history }) => {
       <h1>{player.name}</h1>
       <EditPlayerForm
         player={player}
-        onSubmit={(player) => {
-          dispatch(editPlayer(player, player.id));
+        onSubmit={(updates) => {
+          dispatch(editPlayer(updates, player.id));
           isUpload
             ? history.push('/upload/players')
             : history.push('/create/players');

@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React from 'react';
 import * as Yup from 'yup';
 import { Formik } from 'formik';
 import { StyledForm } from '../../common';
@@ -25,10 +25,6 @@ const TurnsPage = (props) => {
   const gamePlayers = useSelector((state) => state.players);
   const gameDebates = useSelector((state) => state.debates);
 
-  const [itemsFilled, setItemFilled] = useState(
-    turns.map((turn) => turn.filled)
-  );
-
   const dispatch = useDispatch();
   const addItem = () => {
     dispatch(
@@ -45,10 +41,10 @@ const TurnsPage = (props) => {
   };
   const saveGame = async () => {
     // uploading the game to the server
-    // const game = await uploadStats(gameStats);
-    // const players = await uploadPlayers(game, gamePlayers);
-    // const uploadedTurns = await uploadTurns(game, players, turns);
-    // await uploadDebates(players, uploadedTurns, gameDebates);
+    const game = await uploadStats(gameStats);
+    const players = await uploadPlayers(game, gamePlayers);
+    const uploadedTurns = await uploadTurns(game, players, turns);
+    await uploadDebates(players, uploadedTurns, gameDebates);
     props.history.push('/');
   };
   //console.log(turns);
@@ -65,17 +61,12 @@ const TurnsPage = (props) => {
             // I added a hidden input to check if the turns are filled
             turns.map((turn, index) => (
               <React.Fragment key={turn.no}>
-                <TurnItem
-                  {...turn}
-                  isUpload={isUpload}
-                  setItemFilled={setItemFilled}
-                  indexInParent={index}
-                />
+                <TurnItem {...turn} isUpload={isUpload} indexInParent={index} />
                 <Input
                   label=''
                   name={`items[${index}]`}
                   type='checkbox'
-                  checked={itemsFilled[index]}
+                  checked={turn.filled}
                   disabled
                   hidden
                 />

@@ -20,8 +20,8 @@ const EditDebatePage = ({ match, history }) => {
         debate={debate}
         turn={turn}
         isUpload={isUpload}
-        onSubmit={(debate) => {
-          dispatch(editDebate(debate, debate.id));
+        onSubmit={(update) => {
+          dispatch(editDebate(update, debate.id));
           isUpload
             ? history.push('/upload/edit-turn/' + turn.no)
             : history.push('/create/edit-turn/' + turn.no);
