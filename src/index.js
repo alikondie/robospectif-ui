@@ -1,10 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App, { store } from './App';
-import * as serviceWorker from './serviceWorker';
-import { checkAuth } from './services/auth';
-import { login } from './store/actions/auth';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App, { store } from "./App";
+import * as serviceWorker from "./serviceWorker";
+import { checkAuth } from "./services/auth";
+import { login } from "./store/actions/auth";
 
 let hasRendered = false;
 
@@ -14,7 +14,7 @@ const renderApp = () => {
       <React.StrictMode>
         <App />
       </React.StrictMode>,
-      document.getElementById('root')
+      document.getElementById("root")
     );
     hasRendered = true;
   }
@@ -24,16 +24,19 @@ ReactDOM.render(
   <React.StrictMode>
     <div>Loading...</div>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
-const localUser = JSON.parse(localStorage.getItem('user')).user;
+if (JSON.parse(localStorage.getItem("user")) === null)
+  localStorage.setItem("user", JSON.stringify({ token: "", user: "" }));
+
+const localUser = JSON.parse(localStorage.getItem("user")).user;
 checkAuth(localUser)
   .then((user) => {
     store.dispatch(login(user));
     renderApp();
   })
-  .then(() => {
+  .catch(() => {
     renderApp();
   });
 
