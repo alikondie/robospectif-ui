@@ -1,15 +1,16 @@
-import React from 'react';
-import { Link as ReactRouterDomLink } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { Link as ReactRouterDomLink } from "react-router-dom";
+import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
-  height: 100vh;
-  width: 15%;
+  flex-basis: 17%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   padding: 0 16px;
-  position: fixed;
+  min-height: 100vh;
+  overflow: auto;
+  flex-grow: 0;
   top: 0;
   background-image: linear-gradient(to right, #141e30, #243b55);
   border-bottom: 3px solid #4286f4;
@@ -18,7 +19,7 @@ const HeaderWrapper = styled.header`
 const Menu = styled.nav`
   display: flex;
   flex-direction: column;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   position: absolute;
   width: 100%;
   padding: 5px;
@@ -40,7 +41,7 @@ const StyledLink = styled(Link)`
   text-align: center;
   box-sizing: border-box;
   margin: auto 0 auto 0;
-  font-weight: ${(p) => (p.isActive ? 'bold' : 'normal')};
+  font-weight: ${(p) => (p.isActive ? "bold" : "normal")};
   color: white;
   text-decoration: none;
 `;
@@ -67,19 +68,19 @@ export const Header = () => {
     <HeaderWrapper>
       <Title>Robospectif</Title>
       <Menu>
-        <StyledLink to='/'>
+        <StyledLink to="/">
           <p>Tableau de bord</p>
         </StyledLink>
-        <StyledLink to='/users'>
+        <StyledLink to="/users">
           <p>Consulter les collaborateurs</p>
         </StyledLink>
-        <StyledLink to='/games'>
+        <StyledLink to="/games">
           <p>Consulter les parties</p>
         </StyledLink>
-        <StyledLink to='/upload'>
+        <StyledLink to="/upload">
           <p>Ajouter à partir d'un fichier</p>
         </StyledLink>
-        <StyledLink to='/create/general-infos'>
+        <StyledLink to="/create/general-infos">
           <p>Ajouter une partie</p>
         </StyledLink>
       </Menu>

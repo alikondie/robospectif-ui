@@ -1,8 +1,8 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from "styled-components";
 
 const Button = styled.button`
   color: white;
-  background: ${(p) => (p.secondary ? 'black' : '#141e30')};
+  background: ${(p) => (p.secondary ? "black" : "#141e30")};
   font-weight: bold;
   ${(p) =>
     p.large
@@ -21,14 +21,16 @@ const Button = styled.button`
   box-shadow: none;
   font-size: 1rem;
   border: none;
-  margin: auto;
-  width: 20%;
+  margin: 5px auto;
+  width: 10%;
+  cursor: pointer;
   display: block;
   white-space: none;
 
   &:disabled {
     background: #eee;
     color: #666;
+    cursor: default;
   }
 `;
 

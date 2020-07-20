@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import UserItem from "./UserItem";
-import { PageLayout, Button } from "../../common";
+import { PageLayout, Button, Item } from "../../common";
 import { getUsers } from "../../../services/user";
 const GamesPage = (props) => {
   const [isFetching, setFetching] = useState(false);
@@ -25,7 +25,11 @@ const GamesPage = (props) => {
       {isFetching ? (
         <p>Loading...</p>
       ) : (
-        users.map((user) => <UserItem key={user._id} {...user} />)
+        users.map((user) => (
+          <Item key={user._id}>
+            <UserItem {...user} />
+          </Item>
+        ))
       )}
       <Button type="submit">Plus de parties</Button>
     </PageLayout>
