@@ -36,7 +36,7 @@ export default () => {
     setDimensions(mostUsedDimensions);
     setChars(mostUsedCharacters);
     setDebates(debateFrequency);
-  });
+  }, []);
   return (
     <PageLayout>
       <h1>Bonjour {user.firstName} !</h1>
