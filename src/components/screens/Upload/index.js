@@ -8,6 +8,17 @@ import { setPlayers } from "../../../store/actions/players";
 import { setTurns } from "../../../store/actions/turns";
 import { setDebates } from "../../../store/actions/debates";
 import { activateUpload } from "../../../store/actions/gameUpload";
+
+const FileUpload = styled(Files)`
+  border: 2px dashed rgba(28, 110, 164, 0.19);
+  border-radius: 17px;
+  cursor: pointer;
+  width: 50%;
+  margin: auto auto 20px auto;
+  padding: 50px;
+  margin-bottom: 20px;
+`;
+
 export default (props) => {
   const dispatch = useDispatch();
   const [jsonFile, setJsonFile] = useState({
@@ -15,6 +26,7 @@ export default (props) => {
     players: {},
     turns: {},
   });
+  const [fileName, setFileName] = useState("");
   const [isUploaded, setUploaded] = useState(false);
 
   const fileReader = new FileReader();
@@ -83,23 +95,16 @@ export default (props) => {
     alert(message);
   };
 
-  const FileUpload = styled(Files)`
-    border: 2px dashed rgba(28, 110, 164, 0.19);
-    border-radius: 17px;
-    cursor: pointer;
-    width: 50%;
-    margin: auto auto 20px auto;
-    padding: 50px;
-    margin-bottom: 20px;
-  `;
-
   return (
     <PageLayout>
       <form onSubmit={uploadFile}>
         <FileUpload
           className="files-dropzone"
           onChange={(file) => {
-            if (!error) fileReader.readAsText(file[0]);
+            if (!error) {
+              fileReader.readAsText(file[0]);
+              setFileName(file[0].name);
+            }
           }}
           onError={(err) => {
             errorHandler(err.code);
@@ -112,7 +117,11 @@ export default (props) => {
           minFileSize={0}
           clickable
         >
-          <h4>Glissez ou clickez pour transférer le fichier</h4>
+          <h4>
+            {fileName === ""
+              ? "Glissez ou clickez pour transférer le fichier"
+              : fileName}
+          </h4>
         </FileUpload>
         <Button type="submit">Transférer</Button>
       </form>

@@ -3,12 +3,12 @@ import { Link as ReactRouterDomLink } from "react-router-dom";
 import styled from "styled-components";
 
 const HeaderWrapper = styled.header`
-  flex-basis: 17%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  padding: 0 16px;
+  padding: 1% 16px;
   min-height: 100vh;
+  position: fixed;
   overflow: auto;
   flex-grow: 0;
   top: 0;
