@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Pie, Line } from "react-chartjs-2";
+import { Pie, Line, defaults } from "react-chartjs-2";
 import styled from "styled-components";
 import { PageLayout } from "../../common";
 
@@ -9,6 +9,8 @@ import {
   mostUsedCharacters,
   debateFrequency,
 } from "./Charts";
+
+defaults.global.defaultFontFamily = "Manrope";
 
 const Chart = styled.div`
   height: 45%;

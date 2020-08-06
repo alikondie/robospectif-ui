@@ -41,7 +41,7 @@ const GamesPage = (props) => {
         const data = await getGames();
         setGames(data.games);
       } catch (error) {}
-
+      console.log("fetching");
       setFetching(false);
     };
     fetchData();
@@ -59,7 +59,13 @@ const GamesPage = (props) => {
           </Item>
         ))
       )}
-      <Button type="submit">Plus de parties</Button>
+      <Button
+        onClick={() => {
+          setFetching(true);
+        }}
+      >
+        Plus de parties
+      </Button>
     </PageLayout>
   );
 };

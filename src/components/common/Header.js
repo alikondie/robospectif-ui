@@ -1,7 +1,7 @@
 import React from "react";
 import { Link as ReactRouterDomLink } from "react-router-dom";
 import styled from "styled-components";
-
+import RobospectifIcon from "../../resources/images/icon.png";
 const HeaderWrapper = styled.header`
   box-sizing: border-box;
   display: flex;
@@ -12,14 +12,15 @@ const HeaderWrapper = styled.header`
   overflow: auto;
   flex-grow: 0;
   top: 0;
-  background-image: linear-gradient(to right, #141e30, #243b55);
+
+  background-image: linear-gradient(45deg, #466d86, #3e515e);
   border-bottom: 3px solid #4286f4;
 `;
 
 const Menu = styled.nav`
   display: flex;
   flex-direction: column;
-  font-family: "Open Sans";
+
   position: absolute;
   width: 100%;
   padding: 5px;
@@ -35,7 +36,7 @@ const Link = ({ isActive, children, ...props }) => {
   return <ReactRouterDomLink {...props}>{children}</ReactRouterDomLink>;
 };
 
-const StyledLink = styled(Link)`
+export const StyledLink = styled(Link)`
   padding: 4px 8px;
   display: block;
   text-align: center;
@@ -46,12 +47,30 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Title = styled.h1`
-  width: 100%;
-  color: white;
-  padding: 4px;
+const UserProfileLink = styled(Link)`
+  color: black;
+  position: fixed;
+  right: 0;
+  top: 0;
+  margin: 10px 30px;
+`;
+
+const TitleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 1px 10%;
   border-bottom: 1px solid #58647a;
-  padding-bottom: 20px;
+`;
+const Icon = styled.img`
+  width: 50px;
+  height: 50px;
+  margin: 1px 40%;
+`;
+
+const Title = styled.h1`
+  width: 80%;
+  order: 2;
+  color: white;
 `;
 
 const CopyRight = styled.p`
@@ -66,7 +85,11 @@ const CopyRight = styled.p`
 export const Header = () => {
   return (
     <HeaderWrapper>
-      <Title>Robospectif</Title>
+      <TitleWrapper>
+        <Title>Robospectif</Title>
+        <Icon src={RobospectifIcon} alt="Robospectif icon" />
+      </TitleWrapper>
+
       <Menu>
         <StyledLink to="/">
           <p>Tableau de bord</p>
@@ -84,7 +107,8 @@ export const Header = () => {
           <p>Ajouter une partie</p>
         </StyledLink>
       </Menu>
-      <CopyRight>Created by Takie Yamani</CopyRight>
+      <UserProfileLink to="/users">Taki Eddine Yamani</UserProfileLink>
+      <CopyRight>© Created by Takie Yamani</CopyRight>
     </HeaderWrapper>
   );
 };

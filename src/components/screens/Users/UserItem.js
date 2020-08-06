@@ -1,14 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Item, StyledLink } from "../../common";
 const UserItem = (props) => {
   return (
-    <div>
-      <Link to={`/edit/user/${props._id}`}>
-        <h1>
-          {props.firstName} {props.lastName}
-        </h1>
-      </Link>
-    </div>
+    <StyledLink style={{ color: "black" }} to={`/edit/user/${props._id}`}>
+      <p>
+        {props.firstName} {props.lastName}
+      </p>
+    </StyledLink>
   );
 };
 

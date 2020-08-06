@@ -1,17 +1,27 @@
-import React from 'react';
-import * as Yup from 'yup';
-import { Formik } from 'formik';
-import { Input, TextArea, StyledForm, Button } from '../../common';
-
+import React from "react";
+import * as Yup from "yup";
+import { Formik } from "formik";
+import { Input, TextArea, StyledForm, Button, SelectAsync } from "../../common";
+import {
+  equipments,
+  dimensions,
+  locomotions,
+  loadOptions,
+} from "../../../resources";
 const playersValidation = Yup.object().shape({
-  name: Yup.string().required('Champ requis'),
-  description: Yup.string().required('Champ requis'),
-  dimension: Yup.string().required('Champ requis'),
-  locomotion: Yup.string().required('Champ requis'),
-  equipments: Yup.array().of(Yup.string().required('Champ requis')),
+  name: Yup.string().required("Champ requis"),
+  description: Yup.string().required("Champ requis"),
+  dimension: Yup.string().required("Champ requis"),
+  locomotion: Yup.string().required("Champ requis"),
+  equipments: Yup.array().of(Yup.string().required("Champ requis")),
 });
-
+//equipments: Yup.array().of(Yup.string().required("Champ requis")),
 const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
+  const loadOptions = async (input, cb) => {
+    const options = equipments.filter((equipment) => equipment.match(input));
+    cb(options.map((option) => ({ label: option, value: option })));
+  };
+
   return (
     <div>
       <Formik
@@ -24,51 +34,52 @@ const EditPlayerForm = ({ player, onSubmit, isUpload }) => {
         }}
         validationSchema={playersValidation}
         onSubmit={(values) => {
+          console.log(values);
           onSubmit({ ...values });
         }}
       >
         <StyledForm>
           <Input
-            label='Nom/Prénom'
-            name='name'
-            type='text'
-            placeholder='Nom/Prénom'
-            disabled={isUpload ? 'disabled' : ''}
+            label="Nom/Prénom"
+            name="name"
+            type="text"
+            placeholder="Nom/Prénom"
+            disabled={isUpload ? "disabled" : ""}
           />
           <TextArea
-            label='Description'
-            name='description'
-            placeholder='Description'
+            label="Description"
+            name="description"
+            placeholder="Description"
           />
           <h2>Carte rejetées</h2>
           <p>Dimension</p>
           {player.rejectedCards.dimension.map((card, index) => (
             <Input
               name={`dimension[${index}]`}
-              type='text'
-              placeholder='dimension'
-              disabled={isUpload ? 'disabled' : ''}
+              type="text"
+              placeholder="dimension"
+              disabled={isUpload ? "disabled" : ""}
             />
           ))}
           <p>Locomotion</p>
           {player.rejectedCards.locomotion.map((card, index) => (
             <Input
               name={`locomotion[${index}]`}
-              type='text'
-              placeholder='dimension'
-              disabled={isUpload ? 'disabled' : ''}
+              type="text"
+              placeholder="Locomotion"
+              disabled={isUpload ? "disabled" : ""}
             />
           ))}
           <p>Equipements</p>
           {player.rejectedCards.equipments.map((card, index) => (
-            <Input
+            <SelectAsync
               name={`equipments[${index}]`}
-              type='text'
-              placeholder='dimension'
-              disabled={isUpload ? 'disabled' : ''}
+              placeholder={"Ajouter du texte"}
+              loadOptions={(input, cb) => loadOptions(input, cb, equipments)}
+              isDisabled={isUpload ? true : false}
             />
           ))}
-          <Button type='submit'>Valider</Button>
+          <Button type="submit">Valider</Button>
         </StyledForm>
       </Formik>
     </div>

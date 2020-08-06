@@ -12,7 +12,7 @@ const Content = styled.main`
   margin-bottom: 3%;
   justify-content: start;
   align-content: center;
-  font-family: "Open Sans";
+
   flex-shrink: 1;
 `;
 
@@ -26,7 +26,7 @@ const HeaderContainer = styled.div`
   margin-bottom: 10%;
   justify-content: start;
   align-content: center;
-  font-family: "Open Sans";
+
   flex-shrink: 1;
   flex-basis: 17%;
 `;
@@ -34,7 +34,7 @@ const HeaderContainer = styled.div`
 const PageWrapper = styled.div`
   display: flex;
   min-height: 100vh;
-  background-color: #eeeeee;
+  background-color: #ffffff;
 `;
 
 export const PageLayout = ({ children }) => {

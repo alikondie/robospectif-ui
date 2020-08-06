@@ -1,13 +1,13 @@
-import React from 'react';
-import { useField } from 'formik';
-import styled from 'styled-components';
+import React from "react";
+import { useField } from "formik";
+import styled from "styled-components";
 
 export const StyledInput = styled.input`
   padding: 4px 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 1em;
-  margin: auto;
+  margin: 0% 35%;
   margin-bottom: 8px;
   width: 100%;
   box-sizing: border-box;
@@ -20,9 +20,9 @@ export const Input = ({ label, ...props }) => {
   return (
     <>
       <label htmlFor={props.id || props.name}>{label}</label>
-      <StyledInput className='text-input' {...field} {...props} />
+      <StyledInput className="text-input" {...field} {...props} />
       {meta.touched && meta.error ? (
-        <p className='error'>{meta.error}</p>
+        <p className="error">{meta.error}</p>
       ) : null}
     </>
   );

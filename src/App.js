@@ -1,20 +1,33 @@
-import React from 'react';
-import './App.css';
-import AppRouter from './routers/AppRouter';
-import configureStore from './store/configureStore';
-import { Provider } from 'react-redux';
-import { checkAuth } from './services/auth';
-import { login } from './store/actions/auth';
+import React from "react";
+import { createGlobalStyle } from "styled-components";
+import "./App.css";
+import AppRouter from "./routers/AppRouter";
+import configureStore from "./store/configureStore";
+import { Provider } from "react-redux";
+import { checkAuth } from "./services/auth";
+import { login } from "./store/actions/auth";
 
 export const store = configureStore();
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    font-family: "Manrope";
+  }
+
+  button {
+    font-family: inherit;
+  }
+`;
+
 function App() {
-  const localUser = JSON.parse(localStorage.getItem('user')).user;
+  const localUser = JSON.parse(localStorage.getItem("user")).user;
   checkAuth(localUser).then((user) => {
     store.dispatch(login(user));
   });
   return (
     <Provider store={store}>
-      <div className='App'>
+      <GlobalStyle />
+      <div className="App">
         <AppRouter />
       </div>
     </Provider>

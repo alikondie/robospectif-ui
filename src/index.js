@@ -35,6 +35,7 @@ checkAuth(localUser)
   .then((user) => {
     store.dispatch(login(user));
     renderApp();
+    console.log("got here");
   })
   .catch(() => {
     renderApp();

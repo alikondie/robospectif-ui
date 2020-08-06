@@ -1,8 +1,8 @@
-export const locomotions = {
-  planeteRouge: "Planète rouge",
-  planeteVert: "Planète vert",
-  societeRouge: "Société rouge",
-  societeVert: "Société vert",
-  usageRouge: "Usage rouge",
-  usageVert: "Usage vert",
-};
+export const locomotions = [
+  "Planète rouge",
+  "Planète vert",
+  "Société rouge",
+  "Société vert",
+  "Usage rouge",
+  "Usage vert",
+];
